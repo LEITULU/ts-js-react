@@ -13,7 +13,7 @@ function Mid1() {
             setTodo([...todo, inputValue]);
             setInputValue("");
         }
-        console.log(setTodo);
+        console.log(todo);
     }
 
     return (
