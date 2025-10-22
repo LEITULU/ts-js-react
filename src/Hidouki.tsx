@@ -8,8 +8,8 @@ function Hidouki() {
         console.log("データ取得開始...");
 
         await new Promise<void>((resolve: () => void) => setTimeout(resolve, 2000));
-            console.log("データ取得完了！");
-            setMessage("✅ データ取得完了！");
+            console.log({message} , {setMessage});
+            setMessage("データ取得完了！");
         }
 
         fetchData();
