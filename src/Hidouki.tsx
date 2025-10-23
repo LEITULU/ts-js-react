@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react"
 
 function Hidouki() {
-    const [message, setMessage] = useState("読み込み中...");
+    const [message, setMessage] = useState("");
+    const fullText = "こんにちは！"; // 表示したい文字列
 
     useEffect(() => {
-        async function fetchData() {
-        console.log("データ取得開始...");
-
-        await new Promise<void>((resolve: () => void) => setTimeout(resolve, 2000));
-            console.log({message} , {setMessage});
-            setMessage("データ取得完了！");
+        async function animateText() {
+            for (let i = 0; i < fullText.length; i++) {
+                await new Promise(function(resolve) {
+                    setTimeout(resolve, 2000);
+                });
+                setMessage(prev => prev + fullText[i]);
+            }
         }
 
-        fetchData();
+        animateText();
     }, []);
-
 
     return (
         <div style={{ textAlign: "center", marginTop: "40px" }}>
